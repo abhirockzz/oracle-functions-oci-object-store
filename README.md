@@ -13,7 +13,9 @@ Individual functions cater to the put, get and list capabilities i.e. there are 
 - Ensure you are using the latest version of the Fn CLI. To update simply run the following command - `curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh`
 - Oracle Functions setup: Configure the Oracle Functions service along with your development environment and switch to the correct Fn context using `fn use context <context-name>` 
 
-Last but not the least, clone (`git clone https://github.com/abhirockzz/oracle-functions-oci-object-store-basic`) or download this repository before proceeding further
+Clone this repository before proceeding further
+
+	git clone https://github.com/abhirockzz/oracle-functions-oci-object-store
 
 ## Create an application
 
@@ -46,9 +48,9 @@ Run `fn inspect app fn-object-store-app` to check your app (and its config) and 
 
 - Get the function OCID using this command: `fn inspect fn fn-object-store-app listobjects id`
 - Create a dynamic group `fn-obj-store-list-dg` with the matching rule `resource.id = '<FUNCTION_OCID>'`
-- Create an IAM policy `fn-object-store-list-policy` with the statement - please replace placeholders for `<COMPARTMENT_NAME>` and `<BUCKET_NAME>` with values specific to your OCI tenancy
+- Create an IAM policy `fn-object-store-list-policy` with the below statement - please replace placeholders for `<COMPARTMENT_NAME>` and `<BUCKET_NAME>` with values specific to your OCI tenancy
 
-	allow dynamic-group fn-obj-store-list-dg to read objects in compartment <COMPARTMENT_NAME> where all{target.bucket.name='<BUCKET_NAME>'}
+		allow dynamic-group fn-obj-store-list-dg to read objects in compartment <COMPARTMENT_NAME> where all{target.bucket.name='<BUCKET_NAME>'}
 
 ## Get object function
 
@@ -56,19 +58,19 @@ Run `fn inspect app fn-object-store-app` to check your app (and its config) and 
 - Create a dynamic group `fn-obj-store-get-dg` with the matching rule `resource.id = '<FUNCTION_OCID>'`
 - Create an IAM policy `fn-object-store-get-policy` with the following statements - please replace placeholders for `<COMPARTMENT_NAME>` and `<BUCKET_NAME>` with values specific to your OCI tenancy
 
-	allow dynamic-group fn-obj-store-get-dg to read buckets in compartment <COMPARTMENT_NAME>
+		allow dynamic-group fn-obj-store-get-dg to read buckets in compartment <COMPARTMENT_NAME>
 	
-	allow dynamic-group fn-obj-store-get-dg to read objects in compartment <COMPARTMENT_NAME> where all{target.bucket.name='<BUCKET_NAME>'}
+		allow dynamic-group fn-obj-store-get-dg to read objects in compartment <COMPARTMENT_NAME> where all{target.bucket.name='<BUCKET_NAME>'}
 
 ## Put object function
 
 - Get the function OCID using this command: `fn inspect fn fn-object-store-app putobject id`
 - Create a dynamic group `fn-obj-store-put-dg` with the matching rule `resource.id = '<FUNCTION_OCID>'`
-- Create an IAM policy `fn-object-store-put-policy` with the statement - please replace placeholders for `<COMPARTMENT_NAME>` with the value specific to your OCI tenancy
+- Create an IAM policy `fn-object-store-put-policy` with the following statements - please replace placeholders for `<COMPARTMENT_NAME>` with the value specific to your OCI tenancy
 
-	allow dynamic-group fn-obj-store-put-dg to read buckets in compartment <COMPARTMENT_NAME> 
+		allow dynamic-group fn-obj-store-put-dg to read buckets in compartment <COMPARTMENT_NAME> 
 
-	allow dynamic-group fn-obj-store-put-dg to manage objects in compartment <COMPARTMENT_NAME> where any {request.permission='OBJECT_CREATE', request.permission='OBJECT_INSPECT'}
+		allow dynamic-group fn-obj-store-put-dg to manage objects in compartment <COMPARTMENT_NAME> where any {request.permission='OBJECT_CREATE', request.permission='OBJECT_INSPECT'}
 
 ## Testing
 

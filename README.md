@@ -112,7 +112,7 @@ e.g. to list the file names in bucket `test-bucket`
 
 	echo -n 'test-bucket' | fn invoke fn-object-store-app listobjects
 
-you should see a JSON response with list of all file/objects (names)
+you should see a response with list of all file/objects (names)
 
 	[
 	    "file1.txt",

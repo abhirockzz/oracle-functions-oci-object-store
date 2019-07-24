@@ -52,7 +52,7 @@ Run `fn inspect app fn-object-store-app` to check your app (and its config) and 
 
 		allow dynamic-group fn-obj-store-list-dg to read objects in compartment <COMPARTMENT_NAME> where all{target.bucket.name='<BUCKET_NAME>'}
 
-## Get object function
+### Get object function
 
 - Get the function OCID using this command: `fn inspect fn fn-object-store-app getobject id`
 - Create a dynamic group `fn-obj-store-get-dg` with the matching rule `resource.id = '<FUNCTION_OCID>'`
@@ -62,7 +62,7 @@ Run `fn inspect app fn-object-store-app` to check your app (and its config) and 
 	
 		allow dynamic-group fn-obj-store-get-dg to read objects in compartment <COMPARTMENT_NAME> where all{target.bucket.name='<BUCKET_NAME>'}
 
-## Put object function
+### Put object function
 
 - Get the function OCID using this command: `fn inspect fn fn-object-store-app putobject id`
 - Create a dynamic group `fn-obj-store-put-dg` with the matching rule `resource.id = '<FUNCTION_OCID>'`
@@ -74,9 +74,9 @@ Run `fn inspect app fn-object-store-app` to check your app (and its config) and 
 
 ## Testing
 
-You can now test drive the capabilities which the functions provide
+You can now test the app.
 
-Note: This example works with `String` data type for the `content` attribute
+> Note: This example works with `String` data type for the `content` attribute
 
 ### Put object
 

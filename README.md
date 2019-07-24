@@ -9,7 +9,7 @@ Individual functions cater to the put, get and list capabilities i.e. there are 
 
 ## Pre-requisites
 
-- Object Storage: You need to create a storage bucket - please refer to the [details in the documentation](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/managingbuckets.htm?TocPath=Services%7CObject%20Storage%7C_____2). You also need to ensure that the user account which you configure in the application (details to follow) have the required Object Store privileges to execute get, list and put operations. If not, you might see `404` (authorization related) errors while invoking the function e.g. `Error fetching object (404, BucketNotFound, false) Either the bucket named 'test' does not exist in the namespace 'test-namespace' or you are not authorized to access it`. Please refer to the [IAM Policies section in the documentation](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/commonpolicies.htm) for further details
+- Object Storage: You need to create a storage bucket - please refer to the [details in the documentation](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/managingbuckets.htm?TocPath=Services%7CObject%20Storage%7C_____2)
 - Ensure you are using the latest version of the Fn CLI. To update simply run the following command - `curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh`
 - Oracle Functions setup: Configure the Oracle Functions service along with your development environment and switch to the correct Fn context using `fn use context <context-name>` 
 

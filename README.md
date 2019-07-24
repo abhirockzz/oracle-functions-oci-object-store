@@ -13,9 +13,10 @@ Individual functions cater to the put, get and list capabilities i.e. there are 
 - Ensure you are using the latest version of the Fn CLI. To update simply run the following command - `curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh`
 - Oracle Functions setup: Configure the Oracle Functions service along with your development environment and switch to the correct Fn context using `fn use context <context-name>` 
 
-Clone this repository before proceeding further
+Clone this repository before proceeding further and change into the top level directory
 
 	git clone https://github.com/abhirockzz/oracle-functions-oci-object-store
+	cd oracle-functions-oci-object-store
 
 ## Create an application
 
@@ -34,13 +35,19 @@ For e.g.
 
 ## Deploy the functions
 
-Change into the top level directory - `cd oracle-functions-oci-object-store`
+Use the command below to deploy *all* the functions (notice `--all` the the end).
 
 	fn -v deploy --app fn-object-store-app --all
 
-> The above command(s) deploys **all** the functions (notice `--all` the the end). If you want to deploy one function at a time, enter the respective directory and use the same command as above **without the `--all` directive**
+> If you want to deploy one function at a time, enter the respective directory and use the same command as above **without the `--all` directive**
 
-Run `fn inspect app fn-object-store-app` to check your app (and its config) and `fn list functions fn-object-store-app` to check associated functions
+To confirm successful deployment of the app and all its functions: 
+
+	//check your app (and its config)
+	fn inspect app fn-object-store-app
+
+	//check associated functions
+	fn list functions fn-object-store-app
 
 ## Oracle Functions Resource Principals configuration
 

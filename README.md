@@ -1,6 +1,6 @@
 # Oracle Functions + OCI Object Storage
 
-This example shows how Oracle Functions can interact with [Oracle Cloud Infrastructure Object Storage](https://docs.cloud.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) to execute operations such as putting a new object in a storage bucket, listing the objects of a storage bucket and getting the contents of a specific object. 
+This example shows how [Oracle Functions](https://docs.cloud.oracle.com/iaas/Content/Functions/Concepts/functionsoverview.htm) can interact with [Oracle Cloud Infrastructure Object Storage](https://docs.cloud.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) to execute operations such as putting a new object in a storage bucket, listing the objects of a storage bucket and getting the contents of a specific object. 
 
 It uses the Resource Principal authentication provider included in the Oracle Cloud Infrastructure SDK to enable the functions to access another OCI Object Storage service. In order for this to work, you have to configure OCI to include the function in a dynamic group and then create an IAM policy to grant the dynamic group access to Object Storage service.
 
@@ -11,7 +11,7 @@ Individual functions cater to the put, get and list capabilities i.e. there are 
 
 - Object Storage: You need to create a storage bucket - please refer to the [details in the documentation](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/managingbuckets.htm?TocPath=Services%7CObject%20Storage%7C_____2)
 - Ensure you are using the latest version of the Fn CLI. To update simply run the following command - `curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh`
-- Oracle Functions setup: Configure the Oracle Functions service along with your development environment and switch to the correct Fn context using `fn use context <context-name>` 
+- Oracle Functions setup: Please ensure that you have setup and configured Oracle Functions in your tenancy as per [instructions in the documentation](https://docs.cloud.oracle.com/iaas/Content/Functions/Concepts/functionsprerequisites.htm). 
 
 Clone this repository before proceeding further and change into the top level directory
 
